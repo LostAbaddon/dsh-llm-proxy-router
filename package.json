@@ -1,0 +1,70 @@
+{
+  "name": "dsh-llm-proxy-router",
+  "version": "1.0.0",
+  "description": "Route DSH's LLM requests per provider: configurable HTTP/HTTPS proxy for the providers that need one, direct connection for the rest.",
+  "type": "module",
+  "main": "host/index.js",
+  "exports": {
+    ".": {
+      "default": "./host/index.js"
+    },
+    "./client": {
+      "default": "./client/client.js"
+    },
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "host",
+    "client",
+    "locale",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-primitives"
+      ]
+    },
+    "manifestVersion": 1
+  },
+  "meta": {
+    "title": "LLM 代理路由",
+    "description": "按 Provider 决定 LLM 请求是否走代理：Gemini、OpenRouter 等经代理访问，DeepSeek、Kimi、MiniMax、GLM 等直连。代理地址与 Provider 规则在设置页配置。"
+  },
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin",
+    "proxy",
+    "llm",
+    "network"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "LostAbaddon",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LostAbaddon/dsh-llm-proxy-router.git"
+  },
+  "homepage": "https://github.com/LostAbaddon/dsh-llm-proxy-router",
+  "bugs": {
+    "url": "https://github.com/LostAbaddon/dsh-llm-proxy-router/issues"
+  }
+}

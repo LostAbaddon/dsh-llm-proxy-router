@@ -1,0 +1,4 @@
+{
+  "title": "LLM 代理路由",
+  "description": "按 Provider 决定 LLM 请求是否走代理：Gemini、OpenRouter 等经代理访问，DeepSeek、Kimi、MiniMax、GLM 等直连。"
+}

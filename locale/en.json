@@ -1,0 +1,4 @@
+{
+  "title": "LLM Proxy Router",
+  "description": "Decide per provider whether DSH's LLM requests go through a proxy: Gemini and OpenRouter through it, DeepSeek, Kimi, MiniMax and GLM straight out."
+}

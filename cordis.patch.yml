@@ -1,0 +1,19 @@
+# dsh-llm-proxy-router — bundle patch
+#
+# One row mounts the Host half, which installs the per-provider routing patch on
+# the process's `fetch` and serves the Settings routes. The browser half is
+# served from the same package name and registers the Settings page.
+#
+# Optional row config (all of it overridable in the profile's patch layer):
+#
+#   - id: llm-proxy-router
+#     name: 'dsh-llm-proxy-router'
+#     config:
+#       enabled: false                 # start disabled; the Settings page saves the real state
+#       proxyUrl: ''                   # seed value, e.g. http://127.0.0.1:7890
+#       configPath: ''                 # override the $DSH_HOME/llm-proxy-router/config.json location
+#       defaultEnabledProviders: []    # extra provider ids a fresh configuration routes
+#       reportPath: ''                 # write an activation record here, for diagnosis
+- insert:
+    - id: llm-proxy-router
+      name: 'dsh-llm-proxy-router'
